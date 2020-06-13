@@ -8,12 +8,18 @@ public class HeadOffice {
 
 	public void createBranch() {
 		Branch branch = new Branch();
+		String newbranchId = null;
 		// The branchId is equal to one greater than the branchId of the last branch
 		// that is created by this head office
-		String branchId = branches.get(branches.size() - 1).getBranchId();
-		int intbranchId = (Integer.parseInt(branchId));
-		String newbranchId = Integer.toString(intbranchId + 1);
+		if(branches.size()<=0) {
+			newbranchId = "1";
+		}else {
+			String branchId = branches.get(branches.size() - 1).getBranchId();
+			int intbranchId = (Integer.parseInt(branchId));
+			newbranchId = Integer.toString(intbranchId + 1);
+		}
 		branch.setBranchId(newbranchId);
+		
 	}
 
 	public Branch getBranchById(String branchId) throws Exception {

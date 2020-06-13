@@ -18,7 +18,7 @@ public abstract class BankAccount {
 		}
 		Transaction transaction = new Transaction();
 //		String uniqueID = UUID.randomUUID().toString();
-		String transactionId = transactions.get(transactions.size()).getTransactionId() + 1;
+		String transactionId = transactions.get(transactions.size()-1).getTransactionId() + 1;
 		this.currentBalance -= amount;
 		transaction.setTransactionId(transactionId);
 		transaction.setAmount(amount);
@@ -32,7 +32,7 @@ public abstract class BankAccount {
 		}
 		Transaction transaction = new Transaction();
 //		String uniqueID = UUID.randomUUID().toString();
-		String transactionId = transactions.get(transactions.size()).getTransactionId() + 1;
+		String transactionId = transactions.get(transactions.size()-1).getTransactionId() + 1;
 		this.currentBalance += amount;
 		transaction.setTransactionId(transactionId);
 		transaction.setAmount(amount);
@@ -65,7 +65,7 @@ public abstract class BankAccount {
 	}
 
 	public void setCurrentBalance(Double amount) {
-		this.currentBalance += amount;
+		currentBalance += amount;
 	}
 
 	public Double getInterestRate() {

@@ -21,12 +21,15 @@ public class Branch {
 		newAccount.setCurrentBalance(amount);
 		// Since accountNumber is a String, and newAccountNumber must be one greater
 		// than the last accountNumber
-		String lastAccountNumber = bankAccounts.get(bankAccounts.size() - 1).getAccountNumber();
-		int lastAccount = Integer.parseInt(lastAccountNumber);
-		newAccountNumber = Integer.toString(lastAccount + 1);
-
+		if (bankAccounts.size() <= 0) {
+			newAccountNumber = "1";
+		} else {
+			String lastAccountNumber = bankAccounts.get(bankAccounts.size() - 1).getAccountNumber();
+			int lastAccount = Integer.parseInt(lastAccountNumber);
+			newAccountNumber = Integer.toString(lastAccount + 1);
+		}
 		for (Customer customer : customers) {
-			if (customer.getPanNumber().contentEquals(panNumber)) {
+			if (customer.getPanNumber().equals(panNumber)) {
 				newAccount.setAccountNumber(newAccountNumber);
 				customer.addAccount(newAccount);
 				bankAccounts.add(newAccount);
