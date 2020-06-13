@@ -1,10 +1,11 @@
 package com.axis.bankapplication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HeadOffice {
 
-	private List<Branch> branches;
+	private List<Branch> branches = new ArrayList<>();
 
 	public void createBranch() {
 		Branch branch = new Branch();
@@ -19,7 +20,8 @@ public class HeadOffice {
 			newbranchId = Integer.toString(intbranchId + 1);
 		}
 		branch.setBranchId(newbranchId);
-		
+		branches.add(branch);
+		System.out.println("Created new branch with branchId "+branch.getBranchId());
 	}
 
 	public Branch getBranchById(String branchId) throws Exception {

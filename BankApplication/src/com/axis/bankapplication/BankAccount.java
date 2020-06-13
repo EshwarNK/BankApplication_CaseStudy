@@ -10,7 +10,7 @@ public abstract class BankAccount {
 	private Double minimumBalance;
 	private Double currentBalance;
 	private Double interestRate;
-	private List<Transaction> transactions;
+	private List<Transaction> transactions = new ArrayList<>();
 
 	public void withdraw(Double amount) throws Exception {
 		if (this.currentBalance - amount < this.minimumBalance) {

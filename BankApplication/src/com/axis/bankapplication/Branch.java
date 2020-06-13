@@ -1,11 +1,12 @@
 package com.axis.bankapplication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Branch {
 
-	private List<BankAccount> bankAccounts;
-	private List<Customer> customers;
+	private List<BankAccount> bankAccounts = new ArrayList<>();
+	private List<Customer> customers = new ArrayList<>();
 	private String branchId;
 
 	public void createBankAccount(String panNumber, String type, Double amount) {
@@ -43,6 +44,7 @@ public class Branch {
 			customers.add(newCustomer);
 			bankAccounts.add(newAccount);
 		}
+		System.out.println("Created New "+newAccount.getType()+" Account with Bank "+newAccount.getAccountNumber());
 	}
 
 	public Customer getCustomerByPanNumber(String panNumber) throws Exception {
